@@ -53,6 +53,9 @@ export default class App extends Component {
       fetch(`https://api.openweathermap.org/data/2.5/weather?zip=${zipcode},us&APPID=${APIKEY}&units=imperial`)
         .then(response => response.json())
         .then((data) => {
+          if (data.message === 'city not found') {
+            throw Error(data.message);
+          }
           this.setState({
             content: (
               <Card data={data} />
@@ -60,7 +63,6 @@ export default class App extends Component {
           });
         })
         .catch(() => {
-          console.log('wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww');
           this.setState({
             content: (
               <p style={{ textAlign: 'center' }}>

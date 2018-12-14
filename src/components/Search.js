@@ -40,10 +40,8 @@ const Input = styled.input`
 
 const Search = ({ submit, change }) => (
   <SearchWrapper>
-    <h1 style={{ margin: 0, padding: 0 }}>My Weather</h1>
-    <label htmlFor="zipcode">
-      <Input type="number" onChange={change} placeholder="Zipcode" name="zipcode" id="zipcode" />
-    </label>
+    <h1>My Weather</h1>
+    <Input type="number" onChange={change} placeholder="Zipcode" name="zipcode" />
     <Submit type="submit" onClick={submit}>GO</Submit>
   </SearchWrapper>
 );
