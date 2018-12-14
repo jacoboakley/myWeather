@@ -1,9 +1,9 @@
 {
   "short_name": "Weather",
-  "name": "My Weather",
+  "name": "My Zip Weather",
   "icons": [
     {
-      "src": "weather.ico",
+      "src": "/weather.ico",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
     },
