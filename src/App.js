@@ -43,9 +43,8 @@ export default class App extends Component {
     if (zipcode.length !== 5) {
       this.setState({
         content: (
-          <p style={{ textAlign: 'center' }}>
-              There was an error processing the data.
-              Make sure the zipcode is correct and try again.
+          <p>
+            Zipcode must contain 5 digits.
           </p>
         ),
       });
@@ -53,7 +52,7 @@ export default class App extends Component {
       fetch(`https://api.openweathermap.org/data/2.5/weather?zip=${zipcode},us&APPID=${APIKEY}&units=imperial`)
         .then(response => response.json())
         .then((data) => {
-          if (data.message === 'city not found') {
+          if (data.cod === '404') {
             throw Error(data.message);
           }
           this.setState({
@@ -65,9 +64,8 @@ export default class App extends Component {
         .catch(() => {
           this.setState({
             content: (
-              <p style={{ textAlign: 'center' }}>
-                There was an error processing the data.
-                Make sure the zipcode is correct and try again.
+              <p>
+                City Not Found
               </p>
             ),
           });
