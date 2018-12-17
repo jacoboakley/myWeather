@@ -28,7 +28,7 @@ const Card = ({ data }) => (
       {data.weather[0].main}
     </h2>
     <h2>
-      {data.main.temp}
+      {Math.round(data.main.temp)}
       {'\u00BA'}
     </h2>
   </Wrapper>

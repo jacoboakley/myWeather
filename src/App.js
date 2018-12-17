@@ -61,7 +61,8 @@ export default class App extends Component {
             ),
           });
         })
-        .catch(() => {
+        .catch((error) => {
+          console.log(error);
           this.setState({
             content: (
               <p>
