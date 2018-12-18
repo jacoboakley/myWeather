@@ -63,13 +63,27 @@ export default class App extends Component {
         })
         .catch((error) => {
           console.log(error);
-          this.setState({
-            content: (
-              <p>
-                City Not Found
-              </p>
-            ),
-          });
+
+          if (error.message === 'Failed to fetch') {
+            this.setState({
+              content: (
+                <div>
+                  <h3>Network Error</h3>
+                  <p>
+                    {error.message}
+                  </p>
+                </div>
+              ),
+            });
+          } else {
+            this.setState({
+              content: (
+                <p>
+                  {error.message}
+                </p>
+              ),
+            });
+          }
         });
     }
   }
